@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<script type="text/javascript">
+  // This is a CodeSandbox injection script that's used to
+  // add navigation and inspector functionality to the preview
+  (function () {
+    // 1) Get the <script> tag that's currently running:
+    var me = document.currentScript;
+
+    // 2) Create the blocking‐style <script> to load:
+    var script = document.createElement("script");
+    script.src = "https://codesandbox.io/p/preview-protocol.js";
+
+    // By default a dynamically‐inserted <script> is async=true.
+    // Turn async off to make it behave like a normal blocking <script>:
+    script.async = false;
+    // (Do NOT set defer.)
+
+    // 3) Insert it immediately after the current <script>:
+    me.parentNode.insertBefore(script, me);
+  })();
+
+  const isIFramePreview = window.top !== window.self;
+
+  // Only run this script in editor context
+  if (isIFramePreview) {
+    // This script is used to enable Chrome DevTools functionality
+    (function () {
+      var script = document.createElement("script");
+      script.src =
+        "https://codesandbox.io/p/chrome-devtool/protocol/index.js";
+
+      script.onload = () => {
+        const devtoolProtocol = window.chobitsu;
+        if (devtoolProtocol) {
+          window.addEventListener("message", (event) => {
+            const { type, data } = event.data;
+
+            if (type === "FROM_DEVTOOL") {
+              devtoolProtocol.sendRawMessage(data);
+            }
+          });
+
+          devtoolProtocol.setOnMessage((data) => {
+            if (data.includes('"id":"tmp')) {
+              return;
+            }
+
+            window.parent.postMessage({ type: "TO_DEVTOOL", data }, "*");
+          });
+
+          devtoolProtocol.sendRawMessage(
+            `{"id":5,"method":"Runtime.enable","params":{}}`
+          );
+        }        
+      }
+
+      (document.head || document.documentElement).prepend(script);
+    })();
+  }
+
+  if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === "undefined") {
+    let nextID = 0;
+    let hook = (__REACT_DEVTOOLS_GLOBAL_HOOK__ = {
+      renderers: new Map(),
+      supportsFiber: true,
+      inject: (renderer) => {
+        const id = nextID++;
+        hook.renderers.set(id, renderer);
+        return id;
+      },
+      onScheduleFiberRoot() {},
+      onCommitFiberRoot() {},
+      onCommitFiberUnmount() {},
+    });
+  }
+
+  document.currentScript.remove();
+</script>
+<script type="text/javascript">
+  // This is a CodeSandbox injection script that's used to
+  // add navigation and inspector functionality to the preview
+  (function () {
+    // 1) Get the <script> tag that's currently running:
+    var me = document.currentScript;
+
+    // 2) Create the blocking‐style <script> to load:
+    var script = document.createElement("script");
+    script.src = "https://codesandbox.io/p/preview-protocol.js";
+
+    // By default a dynamically‐inserted <script> is async=true.
+    // Turn async off to make it behave like a normal blocking <script>:
+    script.async = false;
+    // (Do NOT set defer.)
+
+    // 3) Insert it immediately after the current <script>:
+    me.parentNode.insertBefore(script, me);
+  })();
+
+  const isIFramePreview = window.top !== window.self;
+
+  // Only run this script in editor context
+  if (isIFramePreview) {
+    // This script is used to enable Chrome DevTools functionality
+    (function () {
+      var script = document.createElement("script");
+      script.src =
+        "https://codesandbox.io/p/chrome-devtool/protocol/index.js";
+
+      script.onload = () => {
+        const devtoolProtocol = window.chobitsu;
+        if (devtoolProtocol) {
+          window.addEventListener("message", (event) => {
+            const { type, data } = event.data;
+
+            if (type === "FROM_DEVTOOL") {
+              devtoolProtocol.sendRawMessage(data);
+            }
+          });
+
+          devtoolProtocol.setOnMessage((data) => {
+            if (data.includes('"id":"tmp')) {
+              return;
+            }
+
+            window.parent.postMessage({ type: "TO_DEVTOOL", data }, "*");
+          });
+
+          devtoolProtocol.sendRawMessage(
+            `{"id":5,"method":"Runtime.enable","params":{}}`
+          );
+        }        
+      }
+
+      (document.head || document.documentElement).prepend(script);
+    })();
+  }
+
+  if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === "undefined") {
+    let nextID = 0;
+    let hook = (__REACT_DEVTOOLS_GLOBAL_HOOK__ = {
+      renderers: new Map(),
+      supportsFiber: true,
+      inject: (renderer) => {
+        const id = nextID++;
+        hook.renderers.set(id, renderer);
+        return id;
+      },
+      onScheduleFiberRoot() {},
+      onCommitFiberRoot() {},
+      onCommitFiberUnmount() {},
+    });
+  }
+
+  document.currentScript.remove();
+</script>
+<script type="text/javascript">
+  // This is a CodeSandbox injection script that's used to
+  // add navigation and inspector functionality to the preview
+  (function () {
+    // 1) Get the <script> tag that's currently running:
+    var me = document.currentScript;
+
+    // 2) Create the blocking‐style <script> to load:
+    var script = document.createElement("script");
+    script.src = "https://codesandbox.io/p/preview-protocol.js";
+
+    // By default a dynamically‐inserted <script> is async=true.
+    // Turn async off to make it behave like a normal blocking <script>:
+    script.async = false;
+    // (Do NOT set defer.)
+
+    // 3) Insert it immediately after the current <script>:
+    me.parentNode.insertBefore(script, me);
+  })();
+
+  const isIFramePreview = window.top !== window.self;
+
+  // Only run this script in editor context
+  if (isIFramePreview) {
+    // This script is used to enable Chrome DevTools functionality
+    (function () {
+      var script = document.createElement("script");
+      script.src =
+        "https://codesandbox.io/p/chrome-devtool/protocol/index.js";
+
+      script.onload = () => {
+        const devtoolProtocol = window.chobitsu;
+        if (devtoolProtocol) {
+          window.addEventListener("message", (event) => {
+            const { type, data } = event.data;
+
+            if (type === "FROM_DEVTOOL") {
+              devtoolProtocol.sendRawMessage(data);
+            }
+          });
+
+          devtoolProtocol.setOnMessage((data) => {
+            if (data.includes('"id":"tmp')) {
+              return;
+            }
+
+            window.parent.postMessage({ type: "TO_DEVTOOL", data }, "*");
+          });
+
+          devtoolProtocol.sendRawMessage(
+            `{"id":5,"method":"Runtime.enable","params":{}}`
+          );
+        }        
+      }
+
+      (document.head || document.documentElement).prepend(script);
+    })();
+  }
+
+  if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === "undefined") {
+    let nextID = 0;
+    let hook = (__REACT_DEVTOOLS_GLOBAL_HOOK__ = {
+      renderers: new Map(),
+      supportsFiber: true,
+      inject: (renderer) => {
+        const id = nextID++;
+        hook.renderers.set(id, renderer);
+        return id;
+      },
+      onScheduleFiberRoot() {},
+      onCommitFiberRoot() {},
+      onCommitFiberUnmount() {},
+    });
+  }
+
+  document.currentScript.remove();
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Không có kết nối - Lotus Glass</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .offline-container {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .offline-icon {
+      font-size: 80px;
+      margin-bottom: 20px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    h1 {
+      color: #333;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      color: #666;
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+
+    .status {
+      background: #f5f5f5;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 30px;
+    }
+
+    .status-indicator {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #ff4444;
+      margin-right: 8px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .status.online .status-indicator {
+      background: #00C851;
+      animation: none;
+    }
+
+    .retry-btn {
+      background: linear-gradient(135deg, #ec5f1a 0%, #ff8a50 100%);
+      color: white;
+      border: none;
+      padding: 15px 40px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      margin-bottom: 20px;
+    }
+
+    .retry-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(236, 95, 26, 0.3);
+    }
+
+    .retry-btn:active {
+      transform: translateY(0);
+    }
+
+    .retry-btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .features {
+      margin-top: 30px;
+      text-align: left;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      margin-bottom: 10px;
+      background: #f8f9fa;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+
+    .feature-item:hover {
+      background: #e9ecef;
+    }
+
+    .feature-icon {
+      font-size: 24px;
+      margin-right: 15px;
+    }
+
+    .feature-text {
+      flex: 1;
+    }
+
+    .feature-title {
+      font-weight: bold;
+      color: #333;
+      font-size: 14px;
+    }
+
+    .feature-desc {
+      color: #666;
+      font-size: 12px;
+      margin-top: 3px;
+    }
+
+    .cached-count {
+      background: #ec5f1a;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .footer {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #e0e0e0;
+      color: #999;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .offline-container {
+        padding: 30px 20px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      .offline-icon {
+        font-size: 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="offline-container">
+    <div class="offline-icon">📡</div>
+    
+    <h1>Bạn đang offline</h1>
+    <p class="subtitle">Không có kết nối Internet</p>
+
+    <div class="status" id="status">
+      <span class="status-indicator"></span>
+      <span class="status-text">Đang kiểm tra kết nối...</span>
+    </div>
+
+    <button class="retry-btn" id="retryBtn" onclick="checkConnection()">
+      🔄 Thử lại
+    </button>
+
+    <div class="features">
+      <h3 style="margin-bottom: 15px; color: #333;">✨ Tính năng vẫn hoạt động:</h3>
+      
+      <div class="feature-item" onclick="goToProducts()">
+        <span class="feature-icon">🛍️</span>
+        <div class="feature-text">
+          <div class="feature-title">
+            Xem sản phẩm 
+            <span class="cached-count" id="productCount">0</span>
+          </div>
+          <div class="feature-desc">Xem sản phẩm đã lưu trong cache</div>
+        </div>
+      </div>
+
+      <div class="feature-item" onclick="goToCart()">
+        <span class="feature-icon">🛒</span>
+        <div class="feature-text">
+          <div class="feature-title">
+            Giỏ hàng 
+            <span class="cached-count" id="cartCount">0</span>
+          </div>
+          <div class="feature-desc">Quản lý giỏ hàng của bạn</div>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <span class="feature-icon">🔍</span>
+        <div class="feature-text">
+          <div class="feature-title">Tìm kiếm & lọc</div>
+          <div class="feature-desc">Tìm sản phẩm trong dữ liệu đã lưu</div>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <span class="feature-icon">📦</span>
+        <div class="feature-text">
+          <div class="feature-title">Đặt hàng offline</div>
+          <div class="feature-desc">Đơn hàng sẽ tự động gửi khi có mạng</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      🌸 Lotus Glass PWA v3.0<br>
+      Hoạt động offline-first
+    </div>
+  </div>
+
+  <script>
+    // Check connection status
+    function updateStatus() {
+      const status = document.getElementById('status');
+      const statusText = status.querySelector('.status-text');
+      
+      if (navigator.onLine) {
+        status.classList.add('online');
+        statusText.textContent = '✅ Đã có kết nối Internet';
+      } else {
+        status.classList.remove('online');
+        statusText.textContent = '⚠️ Không có kết nối Internet';
+      }
+    }
+
+    // Retry connection
+    async function checkConnection() {
+      const btn = document.getElementById('retryBtn');
+      btn.disabled = true;
+      btn.textContent = '⏳ Đang kiểm tra...';
+
+      try {
+        // Try to fetch from home page
+        const response = await fetch('/', { method: 'HEAD' });
+        
+        if (response.ok) {
+          // Online! Redirect to home
+          btn.textContent = '✅ Đã kết nối!';
+          setTimeout(() => {
+            window.location.href = '/';
+          }, 500);
+        } else {
+          throw new Error('No connection');
+        }
+      } catch (error) {
+        // Still offline
+        btn.textContent = '❌ Vẫn chưa có mạng';
+        setTimeout(() => {
+          btn.disabled = false;
+          btn.textContent = '🔄 Thử lại';
+        }, 2000);
+      }
+    }
+
+    // Get cached data counts
+    async function getCachedCounts() {
+      try {
+        // Check if IndexedDB available
+        if (!window.indexedDB) {
+          return;
+        }
+
+        // Try to open database
+        const request = indexedDB.open('LotusGlassDB');
+        
+        request.onsuccess = function(event) {
+          const db = event.target.result;
+          
+          // Get product count
+          if (db.objectStoreNames.contains('products')) {
+            const tx = db.transaction(['products'], 'readonly');
+            const store = tx.objectStore('products');
+            const countRequest = store.count();
+            
+            countRequest.onsuccess = function() {
+              document.getElementById('productCount').textContent = countRequest.result;
+            };
+          }
+          
+          // Get cart count
+          if (db.objectStoreNames.contains('cart')) {
+            const tx = db.transaction(['cart'], 'readonly');
+            const store = tx.objectStore('cart');
+            const countRequest = store.count();
+            
+            countRequest.onsuccess = function() {
+              document.getElementById('cartCount').textContent = countRequest.result;
+            };
+          }
+        };
+        
+      } catch (error) {
+        console.error('Error getting cached counts:', error);
+      }
+    }
+
+    // Navigation
+    function goToProducts() {
+      window.location.href = '/search/label/products';
+    }
+
+    function goToCart() {
+      window.location.href = '/p/cart.html';
+    }
+
+    // Listen for online/offline events
+    window.addEventListener('online', () => {
+      updateStatus();
+      checkConnection();
+    });
+
+    window.addEventListener('offline', () => {
+      updateStatus();
+    });
+
+    // Initial update
+    updateStatus();
+    getCachedCounts();
+
+    // Auto-retry every 10 seconds
+    setInterval(() => {
+      if (!navigator.onLine) {
+        checkConnection();
+      }
+    }, 10000);
+  </script>
+</body>
+</html>
