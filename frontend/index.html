@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PWA Assets - Test Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+    
+    .status {
+      padding: 20px;
+      background: #f0f9ff;
+      border-left: 4px solid #0ea5e9;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    
+    .status.success {
+      background: #f0fdf4;
+      border-left-color: #10b981;
+    }
+    
+    .status.error {
+      background: #fef2f2;
+      border-left-color: #ef4444;
+    }
+    
+    .file-list {
+      list-style: none;
+    }
+    
+    .file-item {
+      padding: 15px;
+      background: #f8fafc;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .file-icon {
+      font-size: 24px;
+    }
+    
+    .file-info {
+      flex: 1;
+    }
+    
+    .file-name {
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 5px;
+    }
+    
+    .file-url {
+      font-size: 12px;
+      color: #64748b;
+      word-break: break-all;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background: #ec5f1a;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+    
+    .btn:hover {
+      background: #d54e0f;
+      transform: translateY(-2px);
+    }
+    
+    .section {
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 1px solid #e2e8f0;
+    }
+    
+    .code {
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 20px;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+    
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background: #10b981;
+      color: white;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-left: 10px;
+    }
+    
+    .badge.pending {
+      background: #f59e0b;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🚀 PWA Assets - ksprovip7777</h1>
+    
+    <div class="status success">
+      <strong>✅ GitHub Pages Ready!</strong><br>
+      Base URL: <code>https://ksprovip7777.github.io/pwa-assets/</code>
+    </div>
+    
+    <h2>📁 Available Files</h2>
+    
+    <ul class="file-list">
+      <li class="file-item">
+        <span class="file-icon">⚙️</span>
+        <div class="file-info">
+          <div class="file-name">service-worker.js <span class="badge">Active</span></div>
+          <div class="file-url">https://ksprovip7777.github.io/pwa-assets/service-worker.js</div>
+        </div>
+      </li>
+      
+      <li class="file-item">
+        <span class="file-icon">📄</span>
+        <div class="file-info">
+          <div class="file-name">offline.html <span class="badge">Active</span></div>
+          <div class="file-url">https://ksprovip7777.github.io/pwa-assets/offline.html</div>
+        </div>
+      </li>
+      
+      <li class="file-item">
+        <span class="file-icon">📱</span>
+        <div class="file-info">
+          <div class="file-name">manifest.json <span class="badge">Active</span></div>
+          <div class="file-url">https://ksprovip7777.github.io/pwa-assets/manifest.json</div>
+        </div>
+      </li>
+      
+      <li class="file-item">
+        <span class="file-icon">🎨</span>
+        <div class="file-info">
+          <div class="file-name">Icons (8 files) <span class="badge pending">Pending</span></div>
+          <div class="file-url">https://ksprovip7777.github.io/pwa-assets/icons/icon-*.png</div>
+        </div>
+      </li>
+      
+      <li class="file-item">
+        <span class="file-icon">🔧</span>
+        <div class="file-info">
+          <div class="file-name">frontend/filter-widget.js <span class="badge">Active</span></div>
+          <div class="file-url">https://ksprovip7777.github.io/pwa-assets/frontend/filter-widget.js</div>
+        </div>
+      </li>
+    </ul>
+    
+    <div class="section">
+      <h2>🧪 Quick Tests</h2>
+      
+      <button class="btn" onclick="testServiceWorker()">Test Service Worker</button>
+      <button class="btn" onclick="testManifest()">Test Manifest</button>
+      <button class="btn" onclick="testOffline()">View Offline Page</button>
+      <button class="btn" onclick="testIcons()">Check Icons</button>
+      
+      <div id="test-results" style="margin-top: 20px;"></div>
+    </div>
+    
+    <div class="section">
+      <h2>📝 Usage in Blogger Theme</h2>
+      
+      <h3>1. Service Worker Registration:</h3>
+      <div class="code">
+&lt;script&gt;
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register(
+    'https://ksprovip7777.github.io/pwa-assets/service-worker.js',
+    { scope: '/' }
+  ).then(reg => console.log('SW registered:', reg));
+}
+&lt;/script&gt;
+      </div>
+      
+      <h3>2. Manifest Link:</h3>
+      <div class="code">
+&lt;link rel="manifest" 
+      href="https://ksprovip7777.github.io/pwa-assets/manifest.json"&gt;
+      </div>
+      
+      <h3>3. Filter Widget:</h3>
+      <div class="code">
+&lt;script src="https://ksprovip7777.github.io/pwa-assets/frontend/filter-widget.js"&gt;&lt;/script&gt;
+      </div>
+    </div>
+    
+    <div class="section">
+      <h2>🔗 Links</h2>
+      <a href="https://github.com/ksprovip7777/pwa-assets" class="btn" target="_blank">
+        📂 GitHub Repo
+      </a>
+      <a href="https://30namthuytinhphaleviettiep.blogspot.com/" class="btn" target="_blank">
+        🌐 Live Site
+      </a>
+    </div>
+  </div>
+  
+  <script>
+    function showResult(message, isSuccess = true) {
+      const resultsDiv = document.getElementById('test-results');
+      const className = isSuccess ? 'success' : 'error';
+      resultsDiv.innerHTML = `<div class="status ${className}">${message}</div>`;
+    }
+    
+    async function testServiceWorker() {
+      try {
+        const response = await fetch('https://ksprovip7777.github.io/pwa-assets/service-worker.js');
+        if (response.ok) {
+          showResult('✅ Service Worker file accessible! Size: ' + response.headers.get('content-length') + ' bytes');
+        } else {
+          showResult('❌ Service Worker returned status: ' + response.status, false);
+        }
+      } catch (error) {
+        showResult('❌ Error: ' + error.message, false);
+      }
+    }
+    
+    async function testManifest() {
+      try {
+        const response = await fetch('https://ksprovip7777.github.io/pwa-assets/manifest.json');
+        if (response.ok) {
+          const data = await response.json();
+          showResult('✅ Manifest valid! App name: ' + data.name);
+        } else {
+          showResult('❌ Manifest returned status: ' + response.status, false);
+        }
+      } catch (error) {
+        showResult('❌ Error: ' + error.message, false);
+      }
+    }
+    
+    function testOffline() {
+      window.open('https://ksprovip7777.github.io/pwa-assets/offline.html', '_blank');
+    }
+    
+    async function testIcons() {
+      const sizes = [72, 96, 128, 144, 152, 192, 384, 512];
+      let results = [];
+      
+      for (const size of sizes) {
+        try {
+          const response = await fetch(`https://ksprovip7777.github.io/pwa-assets/icons/icon-${size}.png`);
+          results.push(`${size}x${size}: ${response.ok ? '✅' : '❌'}`);
+        } catch (error) {
+          results.push(`${size}x${size}: ❌ Error`);
+        }
+      }
+      
+      showResult('<strong>Icon Check Results:</strong><br>' + results.join('<br>'));
+    }
+  </script>
+</body>
+</html>
