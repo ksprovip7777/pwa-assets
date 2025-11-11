@@ -1,131 +1,99 @@
 {
-  "name": "Lotus Glass - Shop Thủy Tinh Cao Cấp",
-  "short_name": "Lotus Glass",
-  "description": "Cửa hàng chuyên cung cấp các sản phẩm thủy tinh cao cấp: ly, cốc, bát, đĩa, bình, hũ. Giao hàng toàn quốc, giá tốt nhất.",
-  "version": "2.0.0",
-  "start_url": "/?utm_source=pwa",
+  "name": "Phale Việt Tiệp - 30 Năm Thủy Tinh Cao Cấp",
+  "short_name": "Phale VT",
+  "description": "Chuyên cung cấp ly thủy tinh, cốc thủy tinh, bình thủy tinh cao cấp từ Việt Nam và Tiệp Khắc. Giá sỉ - lẻ tốt nhất thị trường.",
+  "start_url": "https://30namthuytinhphaleviettiep.blogspot.com/",
   "scope": "/",
   "display": "standalone",
-  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
   "orientation": "portrait-primary",
   "theme_color": "#ec5f1a",
   "background_color": "#ffffff",
   "lang": "vi",
   "dir": "ltr",
-  
+  "categories": ["shopping", "business", "lifestyle"],
   "icons": [
     {
-      "src": "/icon-72.png",
+      "src": "https://ksprovip7777.github.io/pwa-assets/icons/icon-72.png",
       "sizes": "72x72",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/icon-96.png",
+      "src": "https://ksprovip7777.github.io/pwa-assets/icons/icon-96.png",
       "sizes": "96x96",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/icon-128.png",
+      "src": "https://ksprovip7777.github.io/pwa-assets/icons/icon-128.png",
       "sizes": "128x128",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/icon-144.png",
+      "src": "https://ksprovip7777.github.io/pwa-assets/icons/icon-144.png",
       "sizes": "144x144",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/icon-152.png",
+      "src": "https://ksprovip7777.github.io/pwa-assets/icons/icon-152.png",
       "sizes": "152x152",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/icon-192.png",
+      "src": "https://ksprovip7777.github.io/pwa-assets/icons/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/icon-384.png",
+      "src": "https://ksprovip7777.github.io/pwa-assets/icons/icon-384.png",
       "sizes": "384x384",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/icon-512.png",
+      "src": "https://ksprovip7777.github.io/pwa-assets/icons/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     }
   ],
-  
   "screenshots": [
     {
-      "src": "/screenshot-home.png",
-      "sizes": "540x720",
+      "src": "https://ksprovip7777.github.io/pwa-assets/screenshots/mobile-home.png",
+      "sizes": "540x960",
       "type": "image/png",
-      "platform": "narrow",
-      "label": "Trang chủ Lotus Glass"
+      "form_factor": "narrow",
+      "label": "Trang chủ trên mobile"
     },
     {
-      "src": "/screenshot-products.png",
-      "sizes": "540x720",
+      "src": "https://ksprovip7777.github.io/pwa-assets/screenshots/mobile-products.png",
+      "sizes": "540x960",
       "type": "image/png",
-      "platform": "narrow",
+      "form_factor": "narrow",
       "label": "Danh sách sản phẩm"
     },
     {
-      "src": "/screenshot-product-detail.png",
-      "sizes": "540x720",
+      "src": "https://ksprovip7777.github.io/pwa-assets/screenshots/desktop-home.png",
+      "sizes": "1280x800",
       "type": "image/png",
-      "platform": "narrow",
-      "label": "Chi tiết sản phẩm"
-    },
-    {
-      "src": "/screenshot-cart.png",
-      "sizes": "540x720",
-      "type": "image/png",
-      "platform": "narrow",
-      "label": "Giỏ hàng"
-    },
-    {
-      "src": "/screenshot-home-wide.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "platform": "wide",
-      "label": "Trang chủ Lotus Glass"
-    },
-    {
-      "src": "/screenshot-products-wide.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "platform": "wide",
-      "label": "Danh sách sản phẩm"
+      "form_factor": "wide",
+      "label": "Trang chủ trên desktop"
     }
   ],
-  
-  "categories": [
-    "shopping",
-    "lifestyle",
-    "home"
-  ],
-  
   "shortcuts": [
     {
       "name": "Sản phẩm",
       "short_name": "Sản phẩm",
-      "description": "Xem danh sách sản phẩm",
-      "url": "/search/label/Sản phẩm?utm_source=pwa_shortcut",
+      "description": "Xem tất cả sản phẩm",
+      "url": "/search/label/san-pham",
       "icons": [
         {
-          "src": "/icon-shortcut-products.png",
-          "sizes": "96x96",
-          "type": "image/png"
+          "src": "https://ksprovip7777.github.io/pwa-assets/icons/icon-96.png",
+          "sizes": "96x96"
         }
       ]
     },
@@ -133,25 +101,11 @@
       "name": "Giỏ hàng",
       "short_name": "Giỏ hàng",
       "description": "Xem giỏ hàng",
-      "url": "/#/cart?utm_source=pwa_shortcut",
+      "url": "/p/cart.html",
       "icons": [
         {
-          "src": "/icon-shortcut-cart.png",
-          "sizes": "96x96",
-          "type": "image/png"
-        }
-      ]
-    },
-    {
-      "name": "Đơn hàng",
-      "short_name": "Đơn hàng",
-      "description": "Theo dõi đơn hàng",
-      "url": "/#/orders?utm_source=pwa_shortcut",
-      "icons": [
-        {
-          "src": "/icon-shortcut-orders.png",
-          "sizes": "96x96",
-          "type": "image/png"
+          "src": "https://ksprovip7777.github.io/pwa-assets/icons/icon-96.png",
+          "sizes": "96x96"
         }
       ]
     },
@@ -159,17 +113,18 @@
       "name": "Liên hệ",
       "short_name": "Liên hệ",
       "description": "Liên hệ với chúng tôi",
-      "url": "/p/lien-he.html?utm_source=pwa_shortcut",
+      "url": "/p/contact.html",
       "icons": [
         {
-          "src": "/icon-shortcut-contact.png",
-          "sizes": "96x96",
-          "type": "image/png"
+          "src": "https://ksprovip7777.github.io/pwa-assets/icons/icon-96.png",
+          "sizes": "96x96"
         }
       ]
     }
   ],
-  
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "iarc_rating_id": "",
   "share_target": {
     "action": "/share",
     "method": "POST",
@@ -177,71 +132,7 @@
     "params": {
       "title": "title",
       "text": "text",
-      "url": "url",
-      "files": [
-        {
-          "name": "image",
-          "accept": ["image/png", "image/jpeg", "image/webp"]
-        }
-      ]
+      "url": "url"
     }
-  },
-  
-  "protocol_handlers": [
-    {
-      "protocol": "web+lotusglass",
-      "url": "/?product=%s"
-    }
-  ],
-  
-  "related_applications": [
-    {
-      "platform": "play",
-      "url": "https://play.google.com/store/apps/details?id=com.lotusglass.app",
-      "id": "com.lotusglass.app"
-    }
-  ],
-  
-  "prefer_related_applications": false,
-  
-  "file_handlers": [
-    {
-      "action": "/import",
-      "accept": {
-        "text/csv": [".csv"],
-        "application/json": [".json"]
-      },
-      "icons": [
-        {
-          "src": "/icon-import.png",
-          "sizes": "256x256",
-          "type": "image/png"
-        }
-      ],
-      "launch_type": "single-client"
-    }
-  ],
-  
-  "launch_handler": {
-    "client_mode": "navigate-existing"
-  },
-  
-  "edge_side_panel": {
-    "preferred_width": 400
-  },
-  
-  "handle_links": "preferred",
-  
-  "iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ce4e53b7",
-  
-  "permissions_policy": {
-    "geolocation": ["self"],
-    "camera": [],
-    "microphone": [],
-    "payment": ["self"]
-  },
-  
-  "note_taking": {
-    "new_note_url": "/new-note"
   }
 }
